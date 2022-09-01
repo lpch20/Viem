@@ -47,18 +47,14 @@
 
           <div class="navbar-collapse collapse" id="navbarContent">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a href="index.html" class="nav-link"></a>
-              </li>
-            
               <li class="nav-item">
-                <a href="services.html" class="nav-link">Inicio</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
               </li>
               <li class="nav-item">
-                <a href="blog.html" class="nav-link">Noticias</a>
+                <a href="#color1" class="nav-link">Nosotros</a>
               </li>
               <li class="nav-item">
-                <a href="contact.html" class="nav-link">Contacto</a>
+                <a href="#containSix" class="nav-link">¿Como pagar?</a>
               </li>
             </ul>
           </div>
@@ -72,11 +68,11 @@
               <h1 class="mb-4">¡Tu puerta abierta al mundo crediticio!</h1>
               <p class="text-lg mb-5">Estamos <span>re-evolucionando</span> la forma de limpiar tu deuda</p>
 
-              <a href="#" class="btn btn-primary btn-split ml-2">Saber mas<div class="fab"></div></a>
+              <a href="#color1" class="btn btn-primary btn-split ml-2">Saber mas<div class="fab"></div></a>
             </div>
             <div class="col-lg-6 py-3 wow zoomIn">
               <div id="portada">
-                <img src="./assets/img/wepik-photo-mode-2022729-1302.png" alt="">
+                <img id="imagenPortada" src="./assets/img/wepik-photo-mode-2022729-1302.png" alt="">
               </div>
             </div>
           </div>
@@ -170,7 +166,7 @@
                 mundo crediticio.</h2>
               <div class="divider"></div>
               <h4 id="ofertasAvos"> <span class="marked">¡Nosotros hacemos que vuelvan para VOS!</span> </h4>
-              <a id="btnInfo1" href="#" class="btn btn-primary">¡Quiero pagar!</a>
+              <a id="btnInfo1" href="#containSix" class="btn btn-primary">¡Quiero pagar!</a>
             </div>
             <div class="col-lg-6 py-3 wow zoomIn">
               <div class="img-place text-center">
@@ -212,7 +208,7 @@
         </div>
       </div>
 
-      <div id="seccionTestimonial" class="page-section border-top wow fadeInUp">
+      <!-- <div id="seccionTestimonial" class="page-section border-top wow fadeInUp">
         <div class="container">
           <section class="home-testimonial">
             <div class="row d-flex justify-content-center testimonial-pos">
@@ -273,7 +269,7 @@
             </section>
           </section>
         </div>
-      </div>
+      </div> -->
 
       <div id="contacto" class="page-section">
         <div class="container">
@@ -285,19 +281,19 @@
 
               <ul class="contact-list">
                 <li>
-                  <div class="icon"><span class="mai-map"></span></div>
+                  <div id="iconn" class="icon"><span class="mai-map"></span></div>
                   <div id="contact" class="content">
                     <p> Calle Constituyente 1467 Of. 211 Montevideo - Uruguay.</p>
                   </div>
                 </li>
                 <li>
-                  <div class="icon"><span class="mai-mail"></span></div>
+                  <div id="iconn" class="icon"><span class="mai-mail"></span></div>
                   <div id="contact" class="content">
                     <p> info@viemventura.com.uy </p>
                   </div>
                 </li>
                 <li>
-                  <div class="icon"><span class="mai-phone-portrait"></span></div>
+                  <div id="iconn" class="icon"><span class="mai-phone-portrait"></span></div>
                   <div id="contact" class="content">
                     <p> 2 400 8888 </p>
                   </div>
@@ -331,7 +327,7 @@
           <div class="divider mx-auto"></div>
         </div>
         <div class="container">
-          <div class="row">
+          <div id="contenedorCards" class="row">
             <div class="col-md-4">
               <div class="profile-card-2"><a href="https://www.creditel.com.uy/" target="_blank"><img id="imgCreditos" src="./assets/img/creditel.jpg"
                   class="img img-responsive"></a>
@@ -422,13 +418,11 @@
 
   <footer id="foot" class="page-footer">
     <div class="container">
-      <div class="row justify-content-center mb-5">
+      <div class="row justify-content-center mb-2">
         <div class="col-lg-3 py-3">
           <img id="logo2" src="./assets/img/LOGO_VV_REQUIRO_min-removebg-preview.png" alt="">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-
-          <p><a href="#">digigram@mail.com</a></p>
-          <p><a href="#">+00 1122 3344 5566</a></p>
+          <div class="divider mx-auto"></div>
+          <p id="copyright">&copy; 2022 <a href=>Viemventura</a></p>
         </div>
         <div class="col-lg-3 py-3">
           <h5>Quick Links</h5>
@@ -449,33 +443,6 @@
             <li><a href="#">Testimonials</a></li>
             <li><a href="#">News & Press</a></li>
           </ul>
-        </div>
-        <div class="col-lg-3 py-3">
-          <h5>Subscribe</h5>
-          <form action="#">
-            <input type="text" class="form-control" placeholder="Enter your mail..">
-          </form>
-
-          <div class="sosmed-button mt-4">
-            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#"><span class="mai-logo-twitter"></span></a>
-            <a href="#"><span class="mai-logo-google"></span></a>
-            <a href="#"><span class="mai-logo-linkedin"></span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6 py-2">
-          <p id="copyright">&copy; 2022 <a href=>Viemventura</a>. All rights reserved</p>
-        </div>
-        <div class="col-sm-6 py-2 text-right">
-          <div class="d-inline-block px-3">
-            <a href="#">Privacy</a>
-          </div>
-          <div class="d-inline-block px-3">
-            <a href="#">Contact Us</a>
-          </div>
         </div>
       </div>
     </div> 

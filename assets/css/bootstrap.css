@@ -161,10 +161,16 @@ address {
 }
 
 #firstContain{
+  background-color: #F6F5FC;
+  display: flex;
   height: 900px;
   margin-bottom: 0px;
   margin-top: 200px;
+  justify-content: center;
 }
+
+
+
 
 #firstContent h1 {
   color: #5f01f1;
@@ -204,15 +210,18 @@ footer{
   margin-bottom: 1px;
 }
 
-@media (max-width: 991px){
-  header{
-    display: flex;
-    flex-direction: column;
+@media(max-width: 512px){
+  #contact p{
+    font-size: 10px;
   }
+}
 
-  #firstContain {
-    background: url();
-  }
+@media(max-width: 991px) {
+    #portada img {
+      display: flex;
+      width: 200px;
+      margin: auto;
+    }
 }
 
 @media (max-width: 1029px) {
@@ -298,13 +307,15 @@ footer{
 }
 
 #representacion{
-  width: 192px;
+  width: 230px;
   height: 175px;
   display: flex;
   justify-content: center;
   background-color: transparent;
   border-style: none;
 }
+
+
 
 #cardsCreditos:hover {
   height: 300px;
@@ -345,50 +356,17 @@ footer{
   background-color: rgb(211, 194, 241);
 }
 
-#firstContain{
- background: url(./../img/wepik-photo-mode-2022729-1302.png);
- background-size: 1000px;
- background-position: 100%;
- background-repeat: no-repeat;
- width: 100%;
-}
-
-#firstContain h1{
-  font-size: 60px;
-}
-
-@media (max-width: 1840px) {
-  #firstContain{
-    background: url(./../img/wepik-photo-mode-2022729-1302.png);
-    background-size:1000px;
-    background-position: 120%;
-    background-repeat: no-repeat;
-    width: 100%;
-   }
-}
-
-@media (max-width: 1602px) {
-  #firstContain{
-    background: url(./../img/wepik-photo-mode-2022729-1302.png);
-    background-size: 800px;
-    background-position: 130%;
-    background-repeat: no-repeat;
-    width: 100%;
-   }
-}
-
-@media (max-width: 1170px) {
-  #firstContain{
-    background: url(./../img/wepik-photo-mode-2022729-1302.png);
-    background-size: 750px;
-    background-position: 180%;
-    background-repeat: no-repeat;
-    width: 100%;
-   }
-}
-
 #portada img{
-  display: none;
+  display: flex;
+  width: 550px;
+  margin: auto;
+}
+
+#primerContenedor{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 #conatinThree{
@@ -404,7 +382,7 @@ footer{
 }
 
 #containSix{
-  background-color:#F6F5FC;
+  background-color: none;
 }
 
 .page-footer{
@@ -413,6 +391,7 @@ footer{
 
 #foot{
   background-color: rgb(211, 194, 241);
+  text-align: center;
 }
 
 #ofi1{
@@ -438,6 +417,16 @@ footer{
   }
   .carousel-inner .carousel-item > div:first-child {
       display: block;
+  }
+
+  #representacion{
+    width: 192px;
+    height: 175px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border-style: none;
+    margin: auto;
   }
 }
 
@@ -954,6 +943,10 @@ pre code {
   }
 }
 
+@media (min-width: 992px){
+
+}
+
 @media (max-width: 503px) {
   #conatinerColaboradores {
     display: flex;
@@ -1012,6 +1005,7 @@ pre code {
   .container-md {
     max-width: 720px;
   }
+
 }
 
 @media (min-width: 992px) {
@@ -2691,6 +2685,13 @@ pre code {
   .table-responsive-lg>.table-bordered {
     border: 0;
   }
+
+  #portada img {
+    display: flex;
+    width: 350px;
+    margin: auto;
+  }
+
 }
 
 @media (max-width: 1199.98px) {
@@ -2703,6 +2704,34 @@ pre code {
 
   .table-responsive-xl>.table-bordered {
     border: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  #portada img{
+    width: 350px;
+  }
+}
+
+@media (max-width: 992px){
+  #contenedorCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  #imgCreditos{
+    width: 100%;
+  }
+  
+  #representacion{
+    width: 150px;
+    height: 175px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border-style: none;
   }
 }
 
@@ -4076,7 +4105,7 @@ input[type="button"].btn-block {
   }
 }
 
-@media (min-width: 992px) {
+ (min-width: 992px) {
   .dropdown-menu-lg-left {
     right: auto;
     left: 0;
