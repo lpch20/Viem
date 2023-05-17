@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="columna-izquierda">
+            <div class="registro activo" id="registro">
+
+
+                <div class="header">
+                    <h1>Iniciar Sesion</h1>
+                </div>
+
+                <form class="formulario-login" id="formulario-login">
+
+                    <label class="formulario__input" for="nombre">Cedula: sin puntos ni guiones</label>
+                    <div class="contenedor-input" id="grupo__cedula">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path class="formulario__validacion-estado fas fa-times-circle"
+                                d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z" />
+                        </svg>
+                        <input class="formulario__input" type="text" id="cedula" name="cedula" placeholder="69523890">
+                        <p class="formulario__input-error">El nombre solo puede contener letras</p>
+                    </div>
+
+                    <label class="formulario__input" for="contraseña">Contraseña</label>
+                    <div class="contenedor-input" id="grupo__contrasena">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path class="formulario__validacion-estado fas fa-times-circle"
+                                d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                        <input class="formulario__input" type="password" id="contrasena" name="contrasena"
+                            placeholder="******">
+                        <p class="formulario__input-error">El nombre solo puede contener letras</p>
+                    </div>
+
+                    <div class="contenedor-boton">
+                        <a href="program.html"><button id="btn1" type="submit">
+                                Iniciar Sesion
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
+                                    <path class="formulario__validacion-estado fas fa-times-circle" />
+                                </svg>
+                            </button></a>
+                    </div>
+
+                </form>
+
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                        correctamente. </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="columna-derecha">
+
+        </div>
+    </div>
+
+    <script src="./../js/inicioSesion.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

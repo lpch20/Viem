@@ -1,0 +1,14 @@
+{
+  "name": "pagina-viem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./assets/js/script.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^5.4.0"
+  }
+}
