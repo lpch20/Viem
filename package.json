@@ -1,14 +1,32 @@
 {
   "name": "pagina-viem",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./assets/js/script.js"
+    "start": "node assets/js/app.js",
+    "dev": "nodemon assets/js/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongodb": "^5.4.0"
-  }
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "body": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^7.0.7",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "firebase": "^9.22.0",
+    "guardar": "^2.0.3",
+    "mongodb": "^5.4.0",
+    "myql": "^1.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
+    "parser": "^0.1.4",
+    "twilio": "^4.11.1"
+  },
+  "keywords": [],
+  "description": ""
 }

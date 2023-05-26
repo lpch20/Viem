@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -89,6 +89,14 @@
 
     <script src="./../js/inicioSesion.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        // Agrega el siguiente código al final del archivo HTML para enviar la cédula al hacer clic en el botón de inicio de sesión
+        document.getElementById('btn1').addEventListener('click', function () {
+            const cedula = document.getElementById('cedula').value;
+            localStorage.setItem('cedula', cedula);
+        });
+    </script>
 </body>
 
-</html>
+</html> -->

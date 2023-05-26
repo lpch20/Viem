@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS viemlogin;
+
+USE viemlogin;
+
+CREATE TABLE IF NOT EXISTS users (
+    email VARCHAR(100) NOT NULL PRIMARY KEY,
+    name VARCHAR(59) NOT NULL,
+    password VARCHAR (225) NOT NULL,
+    number VARCHAR(8) NOT NULL,
+    number VARCHAR(8) NOT NULL
+);

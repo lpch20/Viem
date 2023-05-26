@@ -7,18 +7,17 @@ const inputs = document.querySelectorAll('.formulario .contenedor-input input')
 const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    password: /^.{4,12}$/, // 4 a 12 digitos.
+    password: /^.{6,12}$/, // 4 a 12 digitos.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    cedula: /^\d{8,14}$/, // 7 a 14 numeros.
-    telefono: /^\d{8,14}$/ // 7 a 14 numeros.
+    cedula: /^\d{8,8}$/, // 7 a 14 numeros.
+    telefono: /^\d{8,9}$/ // 7 a 14 numeros.
 }
 
 const campos = {
     nombre: false,
-    apellido: false,
     cedula: false,
     contrasena: false,
-    correo: false,
+    fecha: false,
     telefono: false
 }
 
@@ -28,9 +27,6 @@ const validarFormulario = (e) => {
     switch (e.target.name) {
         case "nombre":
             validarCeldas(expresiones.nombre, e.target, "nombre")
-            break;
-        case "apellido":
-            validarCeldas(expresiones.nombre, e.target, "apellido")
             break;
         case "cedula":
             validarCeldas(expresiones.cedula, e.target, "cedula")
@@ -42,8 +38,8 @@ const validarFormulario = (e) => {
         case "contrasena2":
             validarContrasena()
             break;
-        case "correo":
-            validarCeldas(expresiones.correo, e.target, "correo")
+        case "fecha":
+            validarCeldas(expresiones.fecha, e.target, "fecha")
             break;
         case "telefono":
             validarCeldas(expresiones.telefono, e.target, "telefono")
@@ -103,13 +99,11 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario)
 });
 
-
 formulario.addEventListener('submit', async (e) => {
-
-
     e.preventDefault();
 
     let camposCompletos = true; // Variable para verificar si todos los campos están completos
+
 
     for (const campo in campos) {
         if (!campos[campo]) {
@@ -121,144 +115,80 @@ formulario.addEventListener('submit', async (e) => {
         }
     }
 
+    let contrasenaCifrada; // Variable para almacenar la contraseña cifrada
+
+    // Verificar si todos los campos están completos
     if (camposCompletos) {
         try {
-            // Verificar si el usuario ya está registrado
-            const respuesta = await fetch('https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca');
-            const registros = await respuesta.json();
-      
-            const usuarioExistente = registros.find(registro => registro.Cedula === formulario.cedula.value);
-      
-            if (usuarioExistente) {
-              console.log('El usuario ya está registrado');
-            } else {
-              // Realizar el registro
-              const registroRespuesta = await fetch('https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca', {
+            // Cifrar la contraseña
+            contrasenaCifrada = CryptoJS.AES.encrypt(formulario.contrasena.value, 'lpch20qwerty').toString();
+
+            // Realizar el registro
+            const registroRespuesta = await fetch('https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
-                  'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                  "Nombre": formulario.nombre.value,
-                  "Apellido": formulario.apellido.value,
-                  "Cedula": formulario.cedula.value,
-                  "Contrasena": formulario.contrasena.value,
-                  "Contrasena2": formulario.contrasena2.value,
-                  "Correo Electronico": formulario.correo.value,
-                  "Telefono": formulario.telefono.value
+                    "Nombre": formulario.nombre.value,
+                    "Apellido": formulario.apellido.value,
+                    "Cedula": formulario.cedula.value,
+                    "Contrasena": contrasenaCifrada,
+                    "Contrasena2": contrasenaCifrada,
+                    "Correo Electronico": formulario.correo.value,
+                    "Telefono": formulario.telefono.value
                 }),
-              });
-      
-              const contenido = await registroRespuesta.json();
-              console.log(contenido);
-              
-              registro.classList.remove('activo')
-              exito.classList.add('activo')
-          
-            }
-          } catch (error) {
+            });
+
+            const contenido = await registroRespuesta.json();
+            console.log(contenido);
+
+            registro.classList.remove('activo')
+            exito.classList.add('activo')
+
+        } catch (error) {
             console.log(error);
-          }
-        } else {
-          console.log('Faltan datos para completar el formulario');
         }
-
-
-    //     try {
-    //         const respuesta = await fetch('https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca', {
-    //             method: 'POST',
-    //             mode: 'cors',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({
-    //                 "Nombre": formulario.nombre.value,
-    //                 "Apellido": formulario.apellido.value,
-    //                 "Cedula": formulario.cedula.value,
-    //                 "Contrasena": formulario.contrasena.value,
-    //                 "Contrasena2": formulario.contrasena2.value,
-    //                 "Correo Electronico": formulario.correo.value,
-    //                 "Telefono": formulario.telefono.value
-    //             }),
-    //         });
-
-    //         const contenido = await respuesta.json();
-    //         console.log(contenido);
-
-
-         
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-
-    //     formulario.reset();
-
-
-    // } else {
-    //     console.log('Faltan datos para completar el formulario');
-       
-    // }
-
-
-
+    } else {
+        console.log('Faltan datos para completar el formulario');
+    }
 
     // LEER FILAS
-
     try {
         const respuesta = await fetch('https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca')
-
         const contenido = await respuesta.json()
         console.log(contenido)
-
     } catch (error) {
         console.log(error)
     }
-
-
 
     // ELIMINAR FILAS
-
     try {
-        const respuesta = await fetch(
-            'https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca', {
+        const respuesta = await fetch('https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca', {
             method: 'DELETE'
         })
-
         const contenido = await respuesta.json()
         console.log(contenido)
-
     } catch (error) {
         console.log(error)
     }
 
-
     // ACTUALIZAR FILAS
-
-
     try {
-
-        const respuesta = await fetch(
-            'https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca', {
+        const respuesta = await fetch('https://sheet.best/api/sheets/b3f9ed0f-fa06-42b4-a366-066dedcff8ca', {
             method: 'PATCH',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "Nombre": formulario.nombre.value,
-                "Apellido": formulario.apellido.value,
-                "Cedula": formulario.cedula.value,
-                "Contrasena": formulario.contrasena.value,
-                "Contrasena2": formulario.contrasena2,
-                "Correo Electronico": formulario.correo.value,
-                "Telefono": formulario.telefono.value
+                "Nombre": "Nuevo nombre",
+                "Apellido": "Nuevo apellido"
             }),
         })
-
         const contenido = await respuesta.json()
         console.log(contenido)
-
     } catch (error) {
         console.log(error)
     }
@@ -268,6 +198,4 @@ formulario.addEventListener('submit', async (e) => {
 
 
 
-
-// VALIDANDO FORMULARIO.
 
